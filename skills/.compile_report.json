@@ -1,0 +1,205 @@
+{
+  "compile_memory_path": "skills/.evidence/memory.md",
+  "compiled_package_id": "tdnegf",
+  "evidence": {
+    "core_skills": [
+      "tdnegf-inputs-and-modeling",
+      "tdnegf-simulation-workflows"
+    ],
+    "evidence_dir": "skills/.evidence",
+    "files": [
+      "skills/.evidence/tdnegf-inputs-and-modeling.md",
+      "skills/.evidence/tdnegf-simulation-workflows.md"
+    ]
+  },
+  "generation": {
+    "docs_only": false,
+    "generator_script": "sci-skills-generator/scripts/generate_skills_folder.py",
+    "max_skills": 30,
+    "return_code": 0,
+    "status": "ok"
+  },
+  "mode": "compile",
+  "pass_scope_diffs": {
+    "pass_2": {
+      "added": [],
+      "changed": [
+        "skills/tdnegf-inputs-and-modeling/SKILL.md",
+        "skills/tdnegf-simulation-workflows/SKILL.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "skills/tdnegf-inputs-and-modeling/SKILL.md",
+        "skills/tdnegf-simulation-workflows/SKILL.md"
+      ]
+    },
+    "pass_3": {
+      "added": [
+        "skills/.compile_report.json",
+        "skills/.evidence/memory.md"
+      ],
+      "changed": [
+        "skills/.compile_report.json",
+        "skills/.evidence/memory.md",
+        "skills/tdnegf-index/SKILL.md",
+        "skills/tdnegf-inputs-and-modeling/SKILL.md",
+        "skills/tdnegf-inputs-and-modeling/references/doc_map.md",
+        "skills/tdnegf-inputs-and-modeling/references/source_map.md",
+        "skills/tdnegf-simulation-workflows/SKILL.md",
+        "skills/tdnegf-simulation-workflows/references/doc_map.md",
+        "skills/tdnegf-simulation-workflows/references/source_map.md"
+      ],
+      "deleted": [],
+      "modified": [
+        "skills/tdnegf-index/SKILL.md",
+        "skills/tdnegf-inputs-and-modeling/SKILL.md",
+        "skills/tdnegf-inputs-and-modeling/references/doc_map.md",
+        "skills/tdnegf-inputs-and-modeling/references/source_map.md",
+        "skills/tdnegf-simulation-workflows/SKILL.md",
+        "skills/tdnegf-simulation-workflows/references/doc_map.md",
+        "skills/tdnegf-simulation-workflows/references/source_map.md"
+      ]
+    }
+  },
+  "passes": [
+    {
+      "pass": 1,
+      "return_code": 0,
+      "status": "ok"
+    },
+    {
+      "pass": 2,
+      "return_code": 0,
+      "status": "ok"
+    },
+    {
+      "pass": 3,
+      "return_code": 0,
+      "status": "ok"
+    }
+  ],
+  "profile": {
+    "docs_dirs": [
+      "docs"
+    ],
+    "docs_only": false,
+    "notes": [
+      "No dedicated top-level test directory was discovered.",
+      "Legacy validation artifacts exist under legacy/ (for example Checks.ipynb and legacy/data/*_test_jl.txt) but are archival.",
+      "Root README.md contains quickstart guidance but docs generation should prioritize docs/ and examples/.",
+      "Generator setup patched for this repo: Julia source extension support (.jl) and f-string newline join rendering bug fixed for deterministic dry-runs."
+    ],
+    "package_name": "TDNEGF",
+    "profile_path": "skills/.compile_profile.json",
+    "profile_source": "file",
+    "source_dirs": [
+      "src"
+    ],
+    "test_dirs": [],
+    "tutorial_dirs": [
+      "examples"
+    ],
+    "warnings": []
+  },
+  "project_root": "/mnt/home/taoeli/fermilink_repos/.fermilink-auto-compile/tdnegf-tdnegf",
+  "run_id": "compile_20260302T190137734983Z",
+  "skill_plan": {
+    "available_skill_ids": [
+      "tdnegf-index",
+      "tdnegf-inputs-and-modeling",
+      "tdnegf-simulation-workflows"
+    ],
+    "core_skill_ids": [
+      "tdnegf-inputs-and-modeling",
+      "tdnegf-simulation-workflows"
+    ],
+    "deferred_gaps": [
+      "No maintained automated test suite discovered under test/ or tests/.",
+      "Legacy notebooks and data include test-like artifacts but require curation before treating as canonical QA references.",
+      "Root README.md is outside docs/ and may need explicit inclusion in later enrichment if generator topic coverage misses onboarding details."
+    ],
+    "goal": "Generate deterministic docs-first TDNEGF skills and finish with audit-validated routing coverage.",
+    "mode": "compile",
+    "priority_skills": [
+      {
+        "action": "create",
+        "must_cover": [
+          "Docs-first routing to topic skills",
+          "Escalation path from docs to source inspection",
+          "Awareness of available docs/examples and missing formal tests"
+        ],
+        "reason": "All user requests must route through a stable package index before topic deep-dives.",
+        "skill_id": "tdnegf-index",
+        "source_hints": [
+          "docs",
+          "examples",
+          "src",
+          "README.md"
+        ]
+      },
+      {
+        "action": "create",
+        "must_cover": [
+          "ODEProblem setup and solve flow",
+          "State packing/unpacking via ModelParamsTDNEGF and pointer",
+          "Runtime parameter and solver tolerance checkpoints"
+        ],
+        "reason": "Propagation and runtime workflow are central to first-week TDNEGF usage.",
+        "skill_id": "tdnegf-simulation-workflows",
+        "source_hints": [
+          "docs/propagation.md",
+          "src/eom_tdnegf.jl",
+          "examples/01_two_terminal_square_lattice.jl",
+          "src/types.jl"
+        ]
+      },
+      {
+        "action": "create",
+        "must_cover": [
+          "Model dimensions and lattice/spin/orbital parameterization",
+          "Hamiltonian and self-energy input preparation",
+          "Lead-coupling and pole-data assignment into model state"
+        ],
+        "reason": "Correct model setup drives physical correctness and convergence behavior.",
+        "skill_id": "tdnegf-inputs-and-modeling",
+        "source_hints": [
+          "docs/architecture.md",
+          "src/types.jl",
+          "src/hamiltonians.jl",
+          "src/selfenergy.jl",
+          "src/poles.jl"
+        ]
+      }
+    ],
+    "version": 1,
+    "warnings": []
+  },
+  "skill_plan_path": "skills/.evidence/skill_plan.json",
+  "validation": {
+    "core_skills_checked": [
+      "tdnegf-simulation-workflows",
+      "tdnegf-inputs-and-modeling"
+    ],
+    "docs_only": false,
+    "errors": [
+      "/mnt/home/taoeli/fermilink_repos/.fermilink-auto-compile/tdnegf-tdnegf/skills/tdnegf-inputs-and-modeling/references/source_map.md: broken path references: src/.ipynb_checkpoints/*",
+      "/mnt/home/taoeli/fermilink_repos/.fermilink-auto-compile/tdnegf-tdnegf/skills/tdnegf-simulation-workflows/references/source_map.md: broken path references: src/.ipynb_checkpoints/*"
+    ],
+    "index_skills": [
+      "tdnegf-index"
+    ],
+    "missing_planned_skills": [],
+    "ok": false,
+    "planned_skill_ids": [
+      "tdnegf-index",
+      "tdnegf-simulation-workflows",
+      "tdnegf-inputs-and-modeling"
+    ],
+    "previous_source_inventory": {},
+    "skills_total": 3,
+    "source_inventory": {},
+    "source_links_total": 12,
+    "topic_skills": 2,
+    "warnings": []
+  }
+}
